@@ -1,7 +1,7 @@
-name: "abrpWF"
+name: abrpWF
 output_dir: ../docs
 navbar:
-  title: "abrpWF"
+  title: abrpWF
   left:
   - text: Home
     href: index.html
@@ -9,7 +9,10 @@ navbar:
     href: pine.html
   - text: About
     href: about.html
-
+  right:
+  - icon: fa-github
+    text: Source code
+    href: https://github.com/rswaty/abrpWF
 output:
   workflowr::wflow_html:
     toc: yes
