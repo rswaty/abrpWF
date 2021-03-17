@@ -1,0 +1,215 @@
+---
+title: "pine"
+author: "rswaty"
+date: "2021-03-17"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+```{r setup, message=FALSE, warning=FALSE, include=FALSE}
+pacman::p_load(tidyverse, ggsci, ggtext, readr, dyplr, DT)
+theme_set(theme_bw())
+```
+
+
+
+## Visualizing the Pine data
+
+First, the cleaned Pine data
+
+```{r pineDT, echo=FALSE, message=FALSE, warning=FALSE}
+pine <- read_csv("data/pine.csv")
+
+datatable(pine)
+```
+<br>
+
+Notes:
+
+* Swaty added the "BURN_YEAR" column for ease of plotting
+* Data is a compilation of spreadsheets supplied by Kristina Serbesoff-King (1996-2012) and Charles Oliver (2013-2020)
+
+<br>
+
+## Number of observations (rows) per year
+
+```{r obsYear, echo=FALSE, message=FALSE, warning=FALSE}
+
+
+yearObs <-
+pine %>%
+  count(MON_YEAR)
+
+yearObsChart <-
+  yearObs %>%
+  ggplot(aes(x = MON_YEAR, y = n)) +
+  geom_line(size = 1.5) +
+  labs(x = "Year",
+       y = "Number of rows",
+       title = "Number of observations per year",
+       caption = "Data from Florida Chapter")  +
+
+
+  #Adjust the axes
+  theme(plot.title = element_text(face="bold", size =14),
+        axis.title.x = element_text(face="bold", size = 12),
+        axis.title.y = element_text(face="bold", size = 12),
+        legend.title = element_text(face="bold", size = 12))
+
+
+yearObsChart
+```
+
+
+## Number of observations (rows) per year split out by Burn Unit (BU)
+
+```{r message=FALSE, warning=FALSE, include=FALSE, results='hide'}
+yearObsBU <- pine %>%
+  count (MON_YEAR, BU)
+```
+
+
+```{r obsYearBU, echo=FALSE, message=FALSE, warning=FALSE}
+
+
+# fix BU data type
+
+
+yearObsBUChart <-
+  yearObsBU %>%
+  ggplot(aes(x = MON_YEAR, y = n, group =  BU, color = as.factor(BU))) +
+  geom_line(size=1.5, position = position_jitter(width = 0.0001, height = 1.0)) +
+  #geom_point(size =  2.0) +
+
+  # My top color palette
+  scale_color_simpsons(name = "BU") +
+  # labels
+  labs(x = "Year",
+       y = "Number of rows",
+       title = "Number of observations per year colored by BU",
+       subtitle = "Lines jittered so that they would not totally overlap",
+       caption = "Data from Florida Chapter")  +
+
+  #Adjust the axes
+  theme(plot.title = element_text(face="bold", size =14),
+        axis.title.x = element_text(face="bold", size = 12),
+        axis.title.y = element_text(face="bold", size = 12),
+        legend.title = element_text(face="bold", size = 12))
+
+
+yearObsBUChart
+```
+
+
+## Number of pine stems per plot
+
+<br>
+
+```{r message=FALSE, warning=FALSE, include=FALSE, results='hide'}
+pine %>%
+  mutate(MON_YEAR = as.character(MON_YEAR))
+```
+
+
+```{r numStems, echo=FALSE, message=FALSE, warning=FALSE}
+
+stemsExplore <-
+  pine %>%
+  ggplot(aes(x = MON_YEAR, y = STEMS, group = MON_YEAR, fill = MON_YEAR)) +
+  geom_boxplot(position = position_dodge(width = 0.9)) +
+  geom_point(position = position_jitterdodge(seed = 1, dodge.width = 0.9)) +
+  theme_bw() +
+  labs(x = "Year",
+       y = "Number of stemsp",
+       title = "Total number of stems per plot",
+       subtitle = "Dots jittered so that they would not totally overlap",
+       caption = "Data from Florida Chapter")  +
+
+  #Adjust the axes, remove legend
+  theme(legend.position = "none",
+        plot.title = element_text(face="bold", size =14),
+        axis.title.x = element_text(face="bold", size = 12),
+        axis.title.y = element_text(face="bold", size = 12))
+
+
+
+stemsExplore
+
+
+```
+
+
+## Stem size per year
+
+```{r message=FALSE, warning=FALSE, include=FALSE, results='hide'}
+
+groupedPine <- pine %>%
+  group_by(PRES,  SIZE,  MON_YEAR)%>%
+  summarise(meanSTEMS = mean(STEMS))
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+stemsSizeYear <-groupedPine %>%
+
+ ggplot(aes(x= MON_YEAR, y= meanSTEMS, group = SIZE, color = SIZE)) +
+  geom_line(size=1.5) +
+  geom_point(size =  2.0) +
+
+  # My top color palette
+  scale_color_simpsons() +
+
+  # Theme
+  theme_bw() +
+
+
+  # Update the labels of the axes
+  labs(x = "Year",
+       y = "Mean number of stems per year at ABRP",
+       title = "Summarizing number of stems across size categories",
+       caption = "Data from Florida Chapter",
+       color = "Stem Size")  +
+
+  #Adjust the axes
+  theme(plot.title = element_text(face="bold", size =14),
+        axis.title.x = element_text(face="bold", size = 12),
+        axis.title.y = element_text(face="bold", size = 12),
+        legend.title = element_text(face="bold", size = 12))
+stemsSizeYear
+```
+
+
+## Stem size per year split out by BU
+
+```{r message=FALSE, warning=FALSE, include=FALSE, results='hide'}
+
+groupedPineBU <- pine %>%
+  group_by(PRES,  SIZE,  MON_YEAR, BU)%>%
+  summarise(meanSTEMS = mean(STEMS))
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height=8}
+groupedPineYearBU <-groupedPineBU %>%
+
+  ggplot(aes(x= MON_YEAR, y= meanSTEMS, group = SIZE, color = SIZE)) +
+  geom_line(size=1.0) +
+  geom_point(size =  1.5) +
+  facet_grid(rows = vars(BU), scales = "free") +
+  # Update the labels of the axes
+  labs(x = "Year",
+       y = "Mean number of stems",
+       title = "Stems per year by size class",
+       subtitle = "Each facet is a BU; NOTE that scales are different") +
+
+
+  # My top color palette
+  scale_color_simpsons() +
+
+  # Theme
+  theme_bw()
+
+  groupedPineYearBU
+```
+
