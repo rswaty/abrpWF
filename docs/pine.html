@@ -44,6 +44,8 @@
 <script src="site_libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
 <link href="site_libs/crosstalk-1.1.1.9000/css/crosstalk.css" rel="stylesheet" />
 <script src="site_libs/crosstalk-1.1.1.9000/js/crosstalk.min.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 <link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/master/img/reproducible.png">
 <!-- Add a small amount of space between sections. -->
@@ -345,7 +347,13 @@ div.tocify {
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/rswaty/abrpWF">
+    <span class="fas fa-github"></span>
+     
+    Source code
+  </a>
+</li>
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -364,7 +372,7 @@ div.tocify {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -373,7 +381,7 @@ div.tocify {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -382,10 +390,10 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-03-17
+<strong>Last updated:</strong> 2021-03-19
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>abrpWF/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -401,12 +409,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -473,16 +481,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong237f89e"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> 237f89e </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomrswatyabrpWFtree33eb0a68c5761bcf3c08b7a7a6f0d269d64dfcd0targetblank33eb0a6a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/rswaty/abrpWF/tree/33eb0a68c5761bcf3c08b7a7a6f0d269d64dfcd0" target="_blank">33eb0a6</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrong237f89e" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomrswatyabrpWFtree33eb0a68c5761bcf3c08b7a7a6f0d269d64dfcd0targetblank33eb0a6a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version 237f89e. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/rswaty/abrpWF/tree/33eb0a68c5761bcf3c08b7a7a6f0d269d64dfcd0" target="_blank">33eb0a6</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -491,14 +499,10 @@ Note that you need to be careful to ensure that all relevant files for the analy
 Ignored files:
     Ignored:    .Rproj.user/
 
-Untracked files:
-    Untracked:  BUstemsSizeYear.png
-    Untracked:  code/pineProcessing.R
-    Untracked:  data/events.csv
-    Untracked:  data/pine.csv
-
 Unstaged changes:
-    Modified:   analysis/_site.yml
+    Modified:   analysis/about.Rmd
+    Modified:   analysis/index.Rmd
+    Modified:   analysis/pine.Rmd
 
 </code></pre>
 <p>
@@ -539,10 +543,27 @@ Message
 <tbody>
 <tr>
 <td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/rswaty/abrpWF/d86065f2ed23643e385d6d4c6586324c73b4c845/docs/pine.html" target="_blank">d86065f</a>
+</td>
+<td>
+rswaty
+</td>
+<td>
+2021-03-17
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
 Rmd
 </td>
 <td>
-237f89e
+<a href="https://github.com/rswaty/abrpWF/blob/237f89e5ee71eeb184e511f264b855bdb0c55eac/analysis/pine.Rmd" target="_blank">237f89e</a>
 </td>
 <td>
 rswaty
@@ -574,16 +595,16 @@ Publish the initial files for myproject
 </ul>
 <p><br></p>
 </div>
-<div id="number-of-observations-rows-per-year" class="section level2">
-<h2>Number of observations (rows) per year</h2>
+<div id="number-of-observations-per-year-is-variable" class="section level2">
+<h2>Number of observations per year is variable</h2>
 <p><img src="figure/pine.Rmd/obsYear-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
-<div id="number-of-observations-rows-per-year-split-out-by-burn-unit-bu" class="section level2">
-<h2>Number of observations (rows) per year split out by Burn Unit (BU)</h2>
+<div id="some-bus-have-had-more-consistent-monitoring-than-others" class="section level2">
+<h2>Some BUs have had more consistent monitoring than others</h2>
 <p><img src="figure/pine.Rmd/obsYearBU-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
-<div id="number-of-pine-stems-per-plot" class="section level2">
-<h2>Number of pine stems per plot</h2>
+<div id="number-of-pine-stems-per-plot-variable-with-high-of-512-bu-7-plot-7.8-2017" class="section level2">
+<h2>Number of pine stems per plot variable with high of 512 (BU 7, plot 7.8, 2017)</h2>
 <p><br></p>
 <p><img src="figure/pine.Rmd/numStems-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
@@ -594,6 +615,10 @@ Publish the initial files for myproject
 <div id="stem-size-per-year-split-out-by-bu" class="section level2">
 <h2>Stem size per year split out by BU</h2>
 <p><img src="figure/pine.Rmd/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="need-scatter-plot-with-errors.-each-point-is-mean-per-year-each-facet-is-a-size-category" class="section level2">
+<h2>Need scatter plot with errors. Each point is mean per year, each facet is a size category</h2>
+<p><img src="figure/pine.Rmd/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;" /></p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -622,7 +647,6 @@ other attached packages:
  [1] DT_0.17.2       ggtext_0.1.1    ggsci_2.9       forcats_0.5.1  
  [5] stringr_1.4.0   dplyr_1.0.5     purrr_0.3.4     readr_1.4.0    
  [9] tidyr_1.1.3     tibble_3.1.0    ggplot2_3.3.3   tidyverse_1.3.0
-[13] workflowr_1.6.2
 
 loaded via a namespace (and not attached):
  [1] httr_1.4.2           sass_0.3.1           jsonlite_1.7.2      
@@ -634,19 +658,19 @@ loaded via a namespace (and not attached):
 [19] htmltools_0.5.1.1    httpuv_1.5.5         pkgconfig_2.0.3     
 [22] broom_0.7.5          haven_2.3.1          xtable_1.8-4        
 [25] scales_1.1.1         whisker_0.4          later_1.1.0.1       
-[28] git2r_0.28.0         farver_2.1.0         generics_0.1.0      
+[28] git2r_0.28.0         generics_0.1.0       farver_2.1.0        
 [31] ellipsis_0.3.1       pacman_0.5.1         withr_2.4.1         
 [34] cli_2.3.1            magrittr_2.0.1       crayon_1.4.1        
 [37] readxl_1.3.1         mime_0.10            evaluate_0.14       
-[40] ps_1.6.0             fs_1.5.0             fansi_0.4.2         
-[43] xml2_1.3.2           tools_3.6.2          hms_1.0.0           
-[46] lifecycle_1.0.0      munsell_0.5.0        reprex_1.0.0        
-[49] compiler_3.6.2       jquerylib_0.1.3      rlang_0.4.10        
-[52] debugme_1.1.0        grid_3.6.2           rstudioapi_0.13     
-[55] htmlwidgets_1.5.3    crosstalk_1.1.1.9000 labeling_0.4.2      
-[58] rmarkdown_2.7.1      gtable_0.3.0         DBI_1.1.1           
-[61] R6_2.5.0             lubridate_1.7.10     knitr_1.31          
-[64] fastmap_1.1.0        utf8_1.1.4           rprojroot_2.0.2     
+[40] fs_1.5.0             fansi_0.4.2          xml2_1.3.2          
+[43] tools_3.6.2          hms_1.0.0            lifecycle_1.0.0     
+[46] munsell_0.5.0        reprex_1.0.0         compiler_3.6.2      
+[49] jquerylib_0.1.3      rlang_0.4.10         debugme_1.1.0       
+[52] grid_3.6.2           rstudioapi_0.13      htmlwidgets_1.5.3   
+[55] crosstalk_1.1.1.9000 labeling_0.4.2       rmarkdown_2.7.1     
+[58] gtable_0.3.0         DBI_1.1.1            R6_2.5.0            
+[61] lubridate_1.7.10     knitr_1.31           fastmap_1.1.0       
+[64] utf8_1.1.4           workflowr_1.6.2      rprojroot_2.0.2     
 [67] stringi_1.5.3        Rcpp_1.0.6           vctrs_0.3.6         
 [70] dbplyr_2.1.0         tidyselect_1.1.0     xfun_0.22           </code></pre>
 </div>

@@ -32,7 +32,7 @@ Notes:
 
 <br>
 
-## Number of observations (rows) per year
+## Number of observations per year is variable
 
 ```{r obsYear, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -62,7 +62,7 @@ yearObsChart
 ```
 
 
-## Number of observations (rows) per year split out by Burn Unit (BU)
+## Some BUs have had more consistent monitoring than others
 
 ```{r message=FALSE, warning=FALSE, include=FALSE, results='hide'}
 yearObsBU <- pine %>%
@@ -102,7 +102,7 @@ yearObsBUChart
 ```
 
 
-## Number of pine stems per plot
+## Number of pine stems per plot variable with high of 512 (BU 7, plot 7.8, 2017)
 
 <br>
 
@@ -121,7 +121,7 @@ stemsExplore <-
   geom_point(position = position_jitterdodge(seed = 1, dodge.width = 0.9)) +
   theme_bw() +
   labs(x = "Year",
-       y = "Number of stemsp",
+       y = "Number of stems",
        title = "Total number of stems per plot",
        subtitle = "Dots jittered so that they would not totally overlap",
        caption = "Data from Florida Chapter")  +
@@ -211,5 +211,41 @@ groupedPineYearBU <-groupedPineBU %>%
   theme_bw()
 
   groupedPineYearBU
+```
+
+
+## Need scatter plot with errors.  Each point is mean per year, each facet is a size category
+
+
+```{r message=FALSE, warning=FALSE, include=FALSE, results='hide'}
+
+groupedPineSize <- pine %>%
+  group_by(PRES,  SIZE,  MON_YEAR)%>%
+  summarise(meanSTEMS = mean(STEMS),
+            sd = sd(STEMS))
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.height=8}
+groupedPineYearSize <-groupedPineSize %>%
+
+  ggplot(aes(x= MON_YEAR, y= meanSTEMS, ymin = meanSTEMS-sd, ymax = meanSTEMS+sd)) +
+  geom_errorbar(width = 0.2) +
+  geom_point(size =  1.5) +
+  facet_grid(rows = vars(SIZE), scales = "free") +
+  # Update the labels of the axes
+  labs(x = "Year",
+       y = "Mean number of stems",
+       title = "Stems per year by size class",
+       subtitle = "Each facet is a BU; NOTE that scales are different") +
+
+
+  # My top color palette
+  scale_color_simpsons() +
+
+  # Theme
+  theme_bw()
+
+groupedPineYearSize
 ```
 

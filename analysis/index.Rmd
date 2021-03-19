@@ -8,4 +8,13 @@ editor_options:
   chunk_output_type: console
 ---
 
-Welcome to my research website.
+## This site
+This online collection of documents is our place to present 30+ years of monitoring data from the Apalachiacola Bluffs and Ravines Preserve in the panhandle of Florida.
+
+Nature Conservancy LANDFIRE ecologist Randy Swaty and TNC volunteer Laura Roncal put these charts together, standing on the shoulders of many. 
+
+**As of March 2021 these charts are DRAFT**
+
+## People
+
+## Questions
