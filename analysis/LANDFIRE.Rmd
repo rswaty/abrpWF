@@ -7,9 +7,33 @@ editor_options:
   chunk_output_type: console
 ---
 
-## Introduction
+## Historical Ecosystems
 
-```{r}
 
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+knitr::include_graphics("bps.jpg")
 ```
 
+## Historical Mean Fire Return Interval
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+knitr::include_graphics("mfri.jpg")
+```
+
+
+## Existing Vegetation Type
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+knitr::include_graphics("evts.jpg")
+```
+
+
+
+## Existing Vegetation Cover
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+knitr::include_graphics("evc.jpg")
+```
