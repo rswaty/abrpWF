@@ -9,9 +9,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
+<meta name="author" content="rswaty" />
 
+<meta name="date" content="2021-03-23" />
 
-<title>About</title>
+<title>LANDFIRE</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -28,6 +30,9 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -227,6 +232,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -234,6 +302,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-sm-12 col-md-4 col-lg-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-sm-12 col-md-8 col-lg-9">
 
 
 
@@ -286,7 +364,9 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">About</h1>
+<h1 class="title toc-ignore">LANDFIRE</h1>
+<h4 class="author">rswaty</h4>
+<h4 class="date">2021-03-23</h4>
 
 </div>
 
@@ -314,7 +394,7 @@ $(document).ready(function () {
 <strong>Last updated:</strong> 2021-03-23
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
 </p>
 <p>
 <strong>Knit directory:</strong> <code>abrpWF/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -336,6 +416,66 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
 <div class="panel-body">
 <p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20210311code"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Seed:</strong> <code>set.seed(20210311)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20210311code" class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20210311)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Session information:</strong> recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be confident that you successfully produced the results during this run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
+</p>
+</div>
+<div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Using relative paths to the files within your workflowr project makes it easier to run your code on other machines.</p>
 </div>
 </div>
 </div>
@@ -395,7 +535,7 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <div id="versions" class="tab-pane fade">
 
 <p>
-These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/about.Rmd</code>) and HTML (<code>docs/about.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/LANDFIRE.Rmd</code>) and HTML (<code>docs/LANDFIRE.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
 </p>
 <div class="table-responsive">
 <table class="table table-condensed table-hover">
@@ -421,10 +561,10 @@ Message
 <tbody>
 <tr>
 <td>
-html
+Rmd
 </td>
 <td>
-<a href="https://rawcdn.githack.com/rswaty/abrpWF/83b500b9fb869d8e8486b97683329d7bb8150d56/docs/about.html" target="_blank">83b500b</a>
+<a href="https://github.com/rswaty/abrpWF/blob/a46ed0c979058c3a1813460c339c14c8b22d0496/analysis/LANDFIRE.Rmd" target="_blank">a46ed0c</a>
 </td>
 <td>
 rswaty
@@ -433,15 +573,15 @@ rswaty
 2021-03-23
 </td>
 <td>
-Build site.
+Publish the initial files for myproject
 </td>
 </tr>
 <tr>
 <td>
-html
+Rmd
 </td>
 <td>
-<a href="https://rawcdn.githack.com/rswaty/abrpWF/8d226ad4b3fcd004011c9f374bfa5a09a3fd2682/docs/about.html" target="_blank">8d226ad</a>
+<a href="https://github.com/rswaty/abrpWF/blob/de90bdbe3954cf61f5aa216e76730b04effa229d/analysis/LANDFIRE.Rmd" target="_blank">de90bdb</a>
 </td>
 <td>
 rswaty
@@ -450,58 +590,7 @@ rswaty
 2021-03-23
 </td>
 <td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/rswaty/abrpWF/blob/5ffc8f8596d4ab8040689c621db7fc94c814feb4/analysis/about.Rmd" target="_blank">5ffc8f8</a>
-</td>
-<td>
-rswaty
-</td>
-<td>
-2021-03-19
-</td>
-<td>
-added more plots to pine
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/rswaty/abrpWF/d86065f2ed23643e385d6d4c6586324c73b4c845/docs/about.html" target="_blank">d86065f</a>
-</td>
-<td>
-rswaty
-</td>
-<td>
-2021-03-17
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/rswaty/abrpWF/blob/e21f90e9879141af014b945022f336dc6ae19b75/analysis/about.Rmd" target="_blank">e21f90e</a>
-</td>
-<td>
-rswaty
-</td>
-<td>
-2021-03-11
-</td>
-<td>
-Start workflowr project.
+adding canopy and other stuff
 </td>
 </tr>
 </tbody>
@@ -511,14 +600,60 @@ Start workflowr project.
 </div>
 </div>
 </div>
-<div id="data" class="section level2">
-<h2>Data</h2>
+<div id="historical-ecosystems" class="section level2">
+<h2>Historical Ecosystems</h2>
+<p><img src="bps.jpg" width="1275" style="display: block; margin: auto;" /></p>
 </div>
-<div id="limitations" class="section level2">
-<h2>Limitations</h2>
+<div id="historical-mean-fire-return-interval" class="section level2">
+<h2>Historical Mean Fire Return Interval</h2>
+<p><img src="mfri.jpg" width="1275" style="display: block; margin: auto;" /></p>
 </div>
-<div id="other-sources" class="section level2">
-<h2>Other sources</h2>
+<div id="existing-vegetation-type" class="section level2">
+<h2>Existing Vegetation Type</h2>
+<p><img src="evts.jpg" width="1275" style="display: block; margin: auto;" /></p>
+</div>
+<div id="existing-vegetation-cover" class="section level2">
+<h2>Existing Vegetation Cover</h2>
+<p><img src="evc.jpg" width="1275" style="display: block; margin: auto;" /></p>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 3.6.2 (2019-12-12)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows 10 x64 (build 19041)
+
+Matrix products: default
+
+locale:
+[1] LC_COLLATE=English_United States.1252 
+[2] LC_CTYPE=English_United States.1252   
+[3] LC_MONETARY=English_United States.1252
+[4] LC_NUMERIC=C                          
+[5] LC_TIME=English_United States.1252    
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] workflowr_1.6.2
+
+loaded via a namespace (and not attached):
+ [1] Rcpp_1.0.6        whisker_0.4       knitr_1.31        magrittr_2.0.1   
+ [5] debugme_1.1.0     R6_2.5.0          jpeg_0.1-8.1      rlang_0.4.10     
+ [9] fansi_0.4.2       highr_0.8         stringr_1.4.0     tools_3.6.2      
+[13] xfun_0.22         utf8_1.2.1        git2r_0.28.0      jquerylib_0.1.3  
+[17] htmltools_0.5.1.1 ellipsis_0.3.1    rprojroot_2.0.2   yaml_2.2.1       
+[21] digest_0.6.27     tibble_3.1.0      lifecycle_1.0.0   crayon_1.4.1     
+[25] later_1.1.0.1     sass_0.3.1        vctrs_0.3.6       promises_1.2.0.1 
+[29] fs_1.5.0          glue_1.4.2        evaluate_0.14     rmarkdown_2.7.1  
+[33] stringi_1.5.3     bslib_0.2.4       compiler_3.6.2    pillar_1.5.1     
+[37] jsonlite_1.7.2    httpuv_1.5.5      pkgconfig_2.0.3  </code></pre>
+</div>
 </div>
 
 
@@ -535,6 +670,8 @@ footer is added to webpages before the MathJax javascript. -->
 </script>
 
 
+</div>
+</div>
 
 </div>
 
@@ -567,6 +704,32 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
